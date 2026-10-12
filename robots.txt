@@ -1,0 +1,3 @@
+# Mint-Node-1
+User-agent: *
+Allow: *
