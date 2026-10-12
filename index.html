@@ -1,249 +1,844 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Independent flight booking assistance and travel information for JetSMART passengers.">
-<title>JetSMART Flight Booking Assistance</title>
-<style>
-:root{--blue:#164f98;--navy:#173e78;--orange:#f5a000;--green:#168044;--bg:#eef2f8;--text:#1d2939;--muted:#64748b}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--text);line-height:1.6}
-.notice{padding:10px 16px;background:#fff3d5;color:#59410c;text-align:center;font-size:13px}
-.hero{background:linear-gradient(145deg,#15529e,#123e7b);color:white;text-align:center;padding:38px 20px 95px}
-.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.2;max-width:800px;margin:0 auto 20px}
-.hero p{font-size:18px;max-width:760px;margin:auto}
-main{max-width:900px;margin:-58px auto 40px;padding:0 18px;position:relative}
-.card{background:white;border-radius:22px;padding:32px;box-shadow:0 8px 32px #172b4d13}
-h2{color:var(--navy);font-size:clamp(25px,4vw,38px);line-height:1.3;text-align:center;margin:0 0 12px}
-.subtitle{text-align:center;color:var(--muted);font-size:17px;margin:0 0 28px}
-label{display:block;font-weight:700;margin:18px 0 8px}
-input,select{width:100%;padding:16px;border:1px solid #cbd5e1;border-radius:11px;background:white;color:var(--text);font:inherit;min-height:56px}
-input:focus,select:focus{outline:3px solid #93c5fd;border-color:#2774c8}
-.field{position:relative}
-.suggestions{position:absolute;top:100%;left:0;right:0;background:white;border:1px solid #cbd5e1;border-radius:10px;box-shadow:0 10px 22px #0002;z-index:5;max-height:240px;overflow:auto}
-.suggestion{width:100%;border:0;border-bottom:1px solid #e2e8f0;background:white;text-align:left;padding:13px;cursor:pointer;color:var(--navy);font:inherit}
-.suggestion:hover{background:#f1f5f9}
-.suggestion strong,.suggestion small{display:block}
-.suggestion small{color:var(--muted);margin-top:3px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-button{font:inherit;cursor:pointer}
-.primary{width:100%;margin-top:24px;padding:17px;border:0;border-radius:12px;background:var(--orange);color:#152a45;font-size:20px;font-weight:700}
-.primary:hover{background:#e99300}
-.contact{margin-top:26px;padding:28px 20px;background:#eff9f2;border:1px solid #b6e1c5;border-radius:17px;text-align:center}
-.contact h2{color:#176638}
-.contact p{color:#365b45;font-size:17px}
-.phone{display:inline-block;font-size:clamp(26px,5vw,40px);font-weight:700;color:#145ca7;text-decoration:none;margin:8px 0 16px}
-.call{display:inline-block;padding:14px 25px;border-radius:11px;background:var(--green);color:white;text-decoration:none;font-weight:700}
-.disclosure{margin-top:24px;background:#f7f9fc;border-left:5px solid #64748b;padding:20px;color:#4b5b70}
-.official{margin-top:24px;border:1px solid #dbe3ec;border-radius:12px;padding:18px}
-.official h3{margin:0;color:var(--navy)}
-.official a{overflow-wrap:anywhere}
-.results{margin-top:24px;padding:20px;border:1px solid #cbd5e1;border-radius:12px;background:#f8fafc}
-.results h3{margin-top:0}
-.hidden{display:none}
-footer{text-align:center;padding:24px;color:#64748b;font-size:13px}
-a{overflow-wrap:anywhere}
-@media(max-width:600px){.hero{padding:32px 18px 82px}.hero p{font-size:16px}main{padding:0 12px}.card{padding:24px 18px}.grid{grid-template-columns:1fr}.contact{padding:24px 14px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Independent JetSMART flight booking assistance and travel information. Find airport information, learn about booking, cancellations, flight changes and refunds, and access official JetSMART contact resources.">
+  <meta name="theme-color" content="#123e78">
+  <title>JetSMART Flight Booking Assistance | Customer Service Information</title>
+
+  <style>
+    :root {
+      --navy: #123e78;
+      --blue: #075eb0;
+      --orange: #f5a000;
+      --green: #167d43;
+      --text: #202b3c;
+      --muted: #64748b;
+      --border: #d0dbea;
+      --background: #f0f3f8;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--background);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--blue);
+      overflow-wrap: anywhere;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    .hero {
+      padding: 42px 20px 90px;
+      color: var(--white);
+      background: linear-gradient(135deg, #15519a, #10376b);
+      text-align: center;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      margin: 0 auto 18px;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: clamp(16px, 2.5vw, 20px);
+    }
+
+    .container {
+      width: min(900px, calc(100% - 28px));
+      margin: -48px auto 45px;
+      position: relative;
+    }
+
+    .card {
+      padding: clamp(20px, 4vw, 42px);
+      margin-bottom: 24px;
+      background: var(--white);
+      border: 1px solid #e0e7f0;
+      border-radius: 22px;
+      box-shadow: 0 10px 32px rgba(20, 42, 74, 0.07);
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: clamp(25px, 4vw, 34px);
+      line-height: 1.3;
+      margin: 0 0 12px;
+      text-align: center;
+    }
+
+    .intro {
+      color: var(--muted);
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .field {
+      margin-bottom: 20px;
+      min-width: 0;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select {
+      display: block;
+      width: 100%;
+      min-height: 54px;
+      padding: 12px 14px;
+      color: var(--text);
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 11px;
+      outline-offset: 3px;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: #438de5;
+      outline: 2px solid #b9d8ff;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .autocomplete {
+      position: relative;
+    }
+
+    .suggestions {
+      display: none;
+      position: absolute;
+      z-index: 10;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      max-height: 260px;
+      overflow-y: auto;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, .13);
+    }
+
+    .suggestions.open {
+      display: block;
+    }
+
+    .suggestion {
+      display: block;
+      width: 100%;
+      padding: 13px 14px;
+      border: 0;
+      border-bottom: 1px solid #e9eef5;
+      background: white;
+      color: var(--navy);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .suggestion:last-child {
+      border-bottom: 0;
+    }
+
+    .suggestion:hover,
+    .suggestion:focus {
+      background: #edf5ff;
+    }
+
+    .suggestion strong,
+    .suggestion small {
+      display: block;
+    }
+
+    .suggestion small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .primary-button {
+      display: block;
+      width: 100%;
+      padding: 16px 20px;
+      color: #14253b;
+      background: var(--orange);
+      border: 0;
+      border-radius: 12px;
+      font-size: 19px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .primary-button:hover {
+      background: #e99700;
+    }
+
+    .notice {
+      display: none;
+      margin-top: 18px;
+      padding: 16px;
+      background: #fff7e5;
+      border: 1px solid #f1d28c;
+      border-radius: 12px;
+    }
+
+    .notice.show {
+      display: block;
+    }
+
+    .notice p {
+      margin: 0 0 12px;
+    }
+
+    .notice a {
+      display: inline-block;
+      margin: 4px 12px 4px 0;
+      font-weight: 700;
+    }
+
+    .contact-card {
+      padding: 28px 22px;
+      margin-top: 28px;
+      background: #eef8f1;
+      border: 1px solid #b7e2c5;
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      color: #176a39;
+    }
+
+    .contact-card p {
+      max-width: 580px;
+      margin: 10px auto 18px;
+      color: #3b5b49;
+    }
+
+    .phone {
+      display: inline-block;
+      margin: 4px 0 14px;
+      color: #075eb0;
+      font-size: clamp(27px, 5vw, 38px);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .call-button {
+      display: inline-block;
+      padding: 13px 24px;
+      color: white;
+      background: var(--green);
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .official-card {
+      margin-top: 24px;
+      padding: 23px;
+      background: #f8fafc;
+      border: 1px solid #dbe3ed;
+      border-left: 5px solid var(--navy);
+      border-radius: 8px;
+    }
+
+    .official-card h2 {
+      text-align: left;
+      font-size: 25px;
+    }
+
+    .official-card p {
+      margin: 10px 0;
+    }
+
+    .number-label {
+      display: block;
+      margin-top: 14px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .official-number {
+      display: inline-block;
+      margin: 2px 0 8px;
+      font-size: 21px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-heading {
+      margin-bottom: 22px;
+    }
+
+    .faq-item {
+      padding: 20px 0;
+      border-bottom: 1px solid #e1e7ef;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    .faq-item p {
+      margin: 8px 0;
+    }
+
+    .faq-item ul {
+      padding-left: 22px;
+    }
+
+    .faq-item li {
+      margin-bottom: 8px;
+    }
+
+    .independent-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 9px;
+      color: #34445b;
+      background: #e8edf5;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+
+    .disclaimer {
+      padding: 22px;
+      color: #4b5b70;
+      background: #e8edf4;
+      border-left: 5px solid #64748b;
+      border-radius: 7px;
+    }
+
+    .disclaimer p {
+      margin: 0 0 10px;
+    }
+
+    .disclaimer p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      padding: 20px;
+      color: #5f6d80;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer a {
+      margin: 0 8px;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 34px 18px 76px;
+      }
+
+      .container {
+        width: calc(100% - 20px);
+      }
+
+      .card {
+        padding: 20px 17px;
+        border-radius: 17px;
+      }
+
+      .field-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .official-card {
+        padding: 18px;
+      }
+
+      .contact-card {
+        padding: 24px 16px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="notice">Independent flight assistance service. Not affiliated with or endorsed by JetSMART.</div>
+  <header class="hero">
+    <h1>JetSMART Flight Booking Assistance</h1>
+    <p>
+      Looking for flight booking help, reservation information or fare guidance?
+      Explore your trip details and find official JetSMART contact resources
+      alongside our independent assistance service.
+    </p>
+  </header>
 
-<section class="hero">
-<h1>JetSMART Flight Booking Assistance</h1>
-<p>Looking for flight booking help, reservation information or fare guidance? Enter your trip details to explore your options and contact our independent assistance service.</p>
-</section>
+  <main class="container">
+    <section class="card" aria-labelledby="booking-heading">
+      <h2 id="booking-heading">JetSMART Flight Booking Help</h2>
+      <p class="intro">Enter your trip details to explore your options.</p>
 
-<main>
-<section class="card">
-<h2>JetSMART Flight Booking Help</h2>
-<p class="subtitle">Enter your trip details to continue.</p>
+      <form id="trip-form">
+        <div class="field">
+          <label for="trip-type">Trip type</label>
+          <select id="trip-type" name="trip-type">
+            <option value="One-way">One-way</option>
+            <option value="Round-trip">Round-trip</option>
+          </select>
+        </div>
 
-<form id="flightForm">
-<label for="trip">Trip type</label>
-<select id="trip">
-<option value="oneway">One-way</option>
-<option value="roundtrip">Round trip</option>
-</select>
+        <div class="field-grid">
+          <div class="field autocomplete">
+            <label for="origin">From</label>
+            <input
+              id="origin"
+              name="origin"
+              type="text"
+              placeholder="City or airport"
+              autocomplete="off"
+              aria-autocomplete="list"
+              aria-controls="origin-suggestions"
+              required
+            >
+            <div class="suggestions" id="origin-suggestions" role="listbox"></div>
+          </div>
 
-<div class="grid">
-<div class="field">
-<label for="from">From</label>
-<input id="from" autocomplete="off" placeholder="City or airport" required>
-<div id="fromList" class="suggestions hidden"></div>
-</div>
-<div class="field">
-<label for="to">To</label>
-<input id="to" autocomplete="off" placeholder="City or airport" required>
-<div id="toList" class="suggestions hidden"></div>
-</div>
-</div>
+          <div class="field autocomplete">
+            <label for="destination">To</label>
+            <input
+              id="destination"
+              name="destination"
+              type="text"
+              placeholder="City or airport"
+              autocomplete="off"
+              aria-autocomplete="list"
+              aria-controls="destination-suggestions"
+              required
+            >
+            <div class="suggestions" id="destination-suggestions" role="listbox"></div>
+          </div>
+        </div>
 
-<div class="grid">
-<div>
-<label for="depart">Departure date</label>
-<input id="depart" type="date" required>
-</div>
-<div id="returnWrap" class="hidden">
-<label for="return">Return date</label>
-<input id="return" type="date">
-</div>
-</div>
+        <div class="field-grid">
+          <div class="field">
+            <label for="departure">Departure date</label>
+            <input id="departure" name="departure" type="date" required>
+          </div>
 
-<label for="passengers">Passengers</label>
-<select id="passengers">
-<option value="1">1 Passenger</option>
-<option value="2">2 Passengers</option>
-<option value="3">3 Passengers</option>
-<option value="4">4 Passengers</option>
-<option value="5">5 Passengers</option>
-<option value="6">6 Passengers</option>
-<option value="7">7 Passengers</option>
-<option value="8">8 Passengers</option>
-<option value="9">9 Passengers</option>
-</select>
+          <div class="field" id="return-field" hidden>
+            <label for="return-date">Return date</label>
+            <input id="return-date" name="return-date" type="date">
+          </div>
+        </div>
 
-<button class="primary" type="submit">Get the Price</button>
-</form>
+        <div class="field">
+          <label for="passengers">Passengers</label>
+          <select id="passengers" name="passengers">
+            <option value="1">1 Passenger</option>
+            <option value="2">2 Passengers</option>
+            <option value="3">3 Passengers</option>
+            <option value="4">4 Passengers</option>
+            <option value="5">5 Passengers</option>
+            <option value="6">6 Passengers</option>
+            <option value="7">7 Passengers</option>
+            <option value="8">8 Passengers</option>
+            <option value="9">9 Passengers</option>
+          </select>
+        </div>
 
-<div id="results" class="results hidden" aria-live="polite">
-<h3>Your trip details</h3>
-<p id="summary"></p>
-<p>This website does not have live flight inventory or fare access. To check real prices and availability, use JetSMART's official website. Our independent assistance team can explain its own services and any applicable fees before you proceed.</p>
-<p><a href="https://jetsmart.com/us/en/" target="_blank" rel="noopener noreferrer">Check flights on the official JetSMART website</a></p>
-<a class="call" href="tel:+18666528170">Call Independent Assistance</a>
-</div>
+        <button class="primary-button" type="submit">Explore Booking Options</button>
 
-<div class="contact">
-<h2>Speak With an Independent Representative</h2>
-<p>Contact our independent flight assistance service to discuss the assistance we offer and any applicable fees.</p>
-<a class="phone" href="tel:+18666528170">1-866-652-8170</a><br>
-<a class="call" href="tel:+18666528170">Call Independent Assistance</a>
-</div>
+        <div class="notice" id="form-notice" role="status" aria-live="polite">
+          <p id="notice-text"></p>
+          <a href="https://jetsmart.com/us/en/centro-de-ayuda"
+             target="_blank" rel="noopener noreferrer">
+            Check official JetSMART resources
+          </a>
+          <a href="tel:+18666528170">Call independent assistance</a>
+        </div>
+      </form>
 
-<div class="official">
-<h3>Official JetSMART contact information</h3>
-<p>For airline-managed reservations, official policies, ticket changes or airline decisions, contact JetSMART directly.</p>
-<p><strong>US Help Center number listed by JetSMART:</strong><br><a href="tel:+17864180337">+1 786-418-0337</a></p>
-<p><a href="https://jetsmart.com/us/en/centro-de-ayuda" target="_blank" rel="noopener noreferrer">Open the official JetSMART US Help Center</a></p>
-<p><small>Verify current contact details on JetSMART's official website.</small></p>
-</div>
+      <p class="small-note">
+        This form collects trip details in your browser only. It does not search
+        live fares, create reservations, issue tickets or transmit your details
+        to JetSMART.
+      </p>
 
-<div class="disclosure">
-<strong>Important:</strong> This is an independent flight assistance service. It is not the official JetSMART website and is not affiliated with, sponsored by or endorsed by JetSMART. This form does not book tickets, issue tickets, access live fares or confirm seat availability. Always verify prices, baggage rules and booking terms with the airline.
-</div>
-</section>
-</main>
+      <section class="contact-card" aria-labelledby="independent-heading">
+        <span class="independent-label">Independent service</span>
+        <h2 id="independent-heading">Speak With an Independent Representative</h2>
+        <p>
+          Contact our independent flight assistance service to discuss your
+          travel plans and available assistance. Any service fees should be
+          explained and agreed upon before you purchase a service.
+        </p>
+        <a class="phone" href="tel:+18666528170">+1 866-652-8170</a>
+        <br>
+        <a class="call-button" href="tel:+18666528170">Call Independent Assistance</a>
+      </section>
 
-<footer>
-Independent Flight Booking Assistance · Not official JetSMART customer service<br>
-<a href="https://jetsmart.com/us/en/" target="_blank" rel="noopener noreferrer">Official JetSMART website</a>
-</footer>
+      <section class="official-card" aria-labelledby="official-heading">
+        <h2 id="official-heading">Official JetSMART Contact Information</h2>
+        <p>
+          For airline-managed reservations, official policies, ticket changes
+          or airline decisions, contact JetSMART directly.
+        </p>
 
-<script>
-const airports=[
-["New York (JFK)","John F. Kennedy International Airport · US","JFK"],
-["New York (EWR)","Newark Liberty International Airport · US","EWR"],
-["Los Angeles (LAX)","Los Angeles International Airport · US","LAX"],
-["Miami (MIA)","Miami International Airport · US","MIA"],
-["Orlando (MCO)","Orlando International Airport · US","MCO"],
-["Fort Lauderdale (FLL)","Fort Lauderdale-Hollywood International Airport · US","FLL"],
-["Houston (IAH)","George Bush Intercontinental Airport · US","IAH"],
-["Dallas (DFW)","Dallas/Fort Worth International Airport · US","DFW"],
-["Chicago (ORD)","Chicago O'Hare International Airport · US","ORD"],
-["Atlanta (ATL)","Hartsfield-Jackson Atlanta International Airport · US","ATL"],
-["San Francisco (SFO)","San Francisco International Airport · US","SFO"],
-["Las Vegas (LAS)","Harry Reid International Airport · US","LAS"],
-["Santiago (SCL)","Arturo Merino Benítez International Airport · Chile","SCL"],
-["Buenos Aires (AEP)","Jorge Newbery Airport · Argentina","AEP"],
-["Buenos Aires (EZE)","Ministro Pistarini International Airport · Argentina","EZE"],
-["Lima (LIM)","Jorge Chávez International Airport · Peru","LIM"],
-["Bogotá (BOG)","El Dorado International Airport · Colombia","BOG"],
-["Medellín (MDE)","José María Córdova International Airport · Colombia","MDE"],
-["Cartagena (CTG)","Rafael Núñez International Airport · Colombia","CTG"],
-["São Paulo (GRU)","São Paulo/Guarulhos International Airport · Brazil","GRU"],
-["Rio de Janeiro (GIG)","Rio de Janeiro/Galeão International Airport · Brazil","GIG"],
-["Montevideo (MVD)","Carrasco International Airport · Uruguay","MVD"],
-["Asunción (ASU)","Silvio Pettirossi International Airport · Paraguay","ASU"],
-["Quito (UIO)","Mariscal Sucre International Airport · Ecuador","UIO"],
-["Mendoza (MDZ)","Governor Francisco Gabrielli International Airport · Argentina","MDZ"]
-];
+        <span class="number-label">US Help Center number listed by JetSMART:</span>
+        <a class="official-number" href="tel:+17864180337">+1 786-418-0337</a>
 
-function setupAirport(inputId,listId){
-const input=document.getElementById(inputId);
-const list=document.getElementById(listId);
-input.addEventListener("input",()=>{
-list.innerHTML="";
-const q=input.value.trim().toLowerCase();
-if(!q){list.classList.add("hidden");return;}
-const matches=airports.filter(a=>a.join(" ").toLowerCase().includes(q)).slice(0,7);
-matches.forEach(a=>{
-const b=document.createElement("button");
-b.type="button";b.className="suggestion";
-const strong=document.createElement("strong");
-strong.textContent=a[0];
-const small=document.createElement("small");
-small.textContent=a[1];
-b.append(strong,small);
-b.addEventListener("click",()=>{
-input.value=a[0];
-input.dataset.code=a[2];
-list.classList.add("hidden");
-});
-list.appendChild(b);
-});
-list.classList.toggle("hidden",matches.length===0);
-});
-input.addEventListener("focus",()=>{
-if(input.value)input.dispatchEvent(new Event("input"));
-});
-document.addEventListener("click",e=>{
-if(!list.contains(e.target)&&e.target!==input)list.classList.add("hidden");
-});
-}
-setupAirport("from","fromList");
-setupAirport("to","toList");
+        <p>
+          <a href="https://jetsmart.com/us/en/centro-de-ayuda"
+             target="_blank" rel="noopener noreferrer">
+            Open the official JetSMART US Help Center
+          </a>
+        </p>
 
-const trip=document.getElementById("trip");
-const returnWrap=document.getElementById("returnWrap");
-const depart=document.getElementById("depart");
-const ret=document.getElementById("return");
-const today=new Date();
-const localDate=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
-depart.min=localDate(today);
-ret.min=localDate(today);
-depart.addEventListener("change",()=>{
-ret.min=depart.value||localDate(today);
-if(ret.value&&ret.value<ret.min)ret.value=ret.min;
-});
-trip.addEventListener("change",()=>{
-const round=trip.value==="roundtrip";
-returnWrap.classList.toggle("hidden",!round);
-ret.required=round;
-});
+        <p class="small-note">
+          Verify the current contact details and applicable service hours on
+          JetSMART's official website. The independent assistance number above
+          is not an official JetSMART phone number.
+        </p>
+      </section>
+    </section>
 
-document.getElementById("flightForm").addEventListener("submit",e=>{
-e.preventDefault();
-const from=document.getElementById("from").value.trim();
-const to=document.getElementById("to").value.trim();
-if(from.toLowerCase()===to.toLowerCase()){
-alert("Departure and destination must be different.");
-return;
-}
-if(trip.value==="roundtrip"&&ret.value<depart.value){
-alert("Return date must be on or after the departure date.");
-return;
-}
-const fmt=s=>s?new Date(s+"T12:00:00").toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}):"";
-let text=`${trip.value==="roundtrip"?"Round trip":"One-way"}: ${from} to ${to}. Departure: ${fmt(depart.value)}.`;
-if(trip.value==="roundtrip")text+=` Return: ${fmt(ret.value)}.`;
-text+=` Passengers: ${document.getElementById("passengers").value}.`;
-document.getElementById("summary").textContent=text;
-const result=document.getElementById("results");
-result.classList.remove("hidden");
-result.scrollIntoView({behavior:"smooth",block:"start"});
-});
-</script>
+    <section class="card" aria-labelledby="faq-heading">
+      <h2 id="faq-heading" class="section-heading">JetSMART Customer Service Questions</h2>
+
+      <article class="faq-item">
+        <h3>1. How to book a flight in JetSMART?</h3>
+        <p>
+          To book directly, visit the official JetSMART website, enter your
+          origin, destination, travel dates and passenger details, then review
+          the available flights, baggage options, conditions and total price
+          before paying.
+        </p>
+        <p><strong>Official JetSMART US Help Center:</strong>
+          <a href="tel:+17864180337">+1 786-418-0337</a>
+        </p>
+        <p><strong>Independent flight assistance:</strong>
+          <a href="tel:+18666528170">+1 866-652-8170</a>
+        </p>
+        <p>
+          <a href="https://jetsmart.com/us/en/centro-de-ayuda"
+             target="_blank" rel="noopener noreferrer">
+            Official source: JetSMART US Help Center
+          </a>
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>2. How to cancel a JetSMART flight?</h3>
+        <p>
+          Check the fare conditions and cancellation rules for your booking.
+          Cancellation eligibility, charges and available options depend on
+          the applicable fare, route, booking terms and local regulations.
+          Contact JetSMART directly to confirm what applies to your ticket.
+        </p>
+        <p><strong>Official JetSMART US Help Center:</strong>
+          <a href="tel:+17864180337">+1 786-418-0337</a>
+        </p>
+        <p><strong>Independent assistance:</strong>
+          <a href="tel:+18666528170">+1 866-652-8170</a>
+        </p>
+        <p>
+          <a href="https://jetsmart.com/us/en/centro-de-ayuda"
+             target="_blank" rel="noopener noreferrer">
+            Official source: JetSMART Help Center
+          </a>
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>3. How to change a JetSMART flight date or destination?</h3>
+        <p>
+          Review the change conditions for your ticket and contact JetSMART
+          through its official website or Help Center. Change fees, fare
+          differences, deadlines and eligibility may vary by booking.
+          Confirm the final cost before accepting a change.
+        </p>
+        <p><strong>Official JetSMART US Help Center:</strong>
+          <a href="tel:+17864180337">+1 786-418-0337</a>
+        </p>
+        <p><strong>Independent assistance:</strong>
+          <a href="tel:+18666528170">+1 866-652-8170</a>
+        </p>
+        <p>
+          <a href="https://jetsmart.com/us/en/centro-de-ayuda"
+             target="_blank" rel="noopener noreferrer">
+            Official source: JetSMART Help Center
+          </a>
+        </p>
+      </article>
+
+      <article class="faq-item">
+        <h3>4. How to request a refund from JetSMART?</h3>
+        <p>
+          Refund eligibility depends on the fare rules, the reason for the
+          request, the booking conditions and any applicable legal requirements.
+          Check the official refund or customer assistance options and retain
+          your booking confirmation and payment records.
+        </p>
+        <p><strong>Official JetSMART US Help Center:</strong>
+          <a href="tel:+17864180337">+1 786-418-0337</a>
+        </p>
+        <p><strong>Independent assistance:</strong>
+          <a href="tel:+18666528170">+1 866-652-8170</a>
+        </p>
+        <p>
+          <a href="https://jetsmart.com/us/en/centro-de-ayuda"
+             target="_blank" rel="noopener noreferrer">
+            Official source: JetSMART Help Center
+          </a>
+        </p>
+      </article>
+    </section>
+
+    <section class="card" aria-labelledby="about-heading">
+      <h2 id="about-heading">About This Assistance Website</h2>
+      <p>
+        This website provides independent flight information and assistance
+        resources. It is not the official JetSMART website and is not
+        affiliated with, sponsored by, or endorsed by JetSMART.
+      </p>
+      <p>
+        We do not sell JetSMART tickets through this page, access airline
+        reservation systems, display live airline fares or guarantee booking,
+        cancellation, change or refund outcomes. Airline policies and final
+        decisions must be confirmed directly with JetSMART.
+      </p>
+    </section>
+
+    <section class="disclaimer" aria-label="Important information">
+      <p>
+        <strong>Important:</strong> The phone numbers are presented separately
+        to distinguish official airline contact information from independent
+        assistance. The independent number is not a JetSMART customer service
+        number. Confirm the official contact details on JetSMART's website.
+      </p>
+      <p>
+        Review the service provider's identity, scope of service and any fees
+        before agreeing to pay for independent assistance.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Independent flight assistance and travel information.</p>
+    <p>
+      <a href="https://jetsmart.com/us/en/centro-de-ayuda"
+         target="_blank" rel="noopener noreferrer">
+        Official JetSMART US Help Center
+      </a>
+    </p>
+    <p>© <span id="year"></span> Independent Flight Assistance.</p>
+  </footer>
+
+  <script>
+    const airports = [
+      { city: "Miami", code: "MIA", name: "Miami International Airport", country: "US" },
+      { city: "Miami", code: "MIO", name: "Miami Municipal Airport", country: "US" },
+      { city: "Fort Lauderdale", code: "FLL", name: "Fort Lauderdale-Hollywood International Airport", country: "US" },
+      { city: "Orlando", code: "MCO", name: "Orlando International Airport", country: "US" },
+      { city: "New York", code: "JFK", name: "John F. Kennedy International Airport", country: "US" },
+      { city: "Newark", code: "EWR", name: "Newark Liberty International Airport", country: "US" },
+      { city: "Houston", code: "IAH", name: "George Bush Intercontinental Airport", country: "US" },
+      { city: "Dallas", code: "DFW", name: "Dallas Fort Worth International Airport", country: "US" },
+      { city: "Los Angeles", code: "LAX", name: "Los Angeles International Airport", country: "US" },
+      { city: "San Francisco", code: "SFO", name: "San Francisco International Airport", country: "US" },
+      { city: "Atlanta", code: "ATL", name: "Hartsfield-Jackson Atlanta International Airport", country: "US" },
+      { city: "Chicago", code: "ORD", name: "Chicago O'Hare International Airport", country: "US" },
+      { city: "Santiago", code: "SCL", name: "Arturo Merino Benítez International Airport", country: "Chile" },
+      { city: "Buenos Aires", code: "EZE", name: "Ministro Pistarini International Airport", country: "Argentina" },
+      { city: "Buenos Aires", code: "AEP", name: "Jorge Newbery Airport", country: "Argentina" },
+      { city: "Lima", code: "LIM", name: "Jorge Chávez International Airport", country: "Peru" },
+      { city: "Bogotá", code: "BOG", name: "El Dorado International Airport", country: "Colombia" },
+      { city: "Medellín", code: "MDE", name: "José María Córdova International Airport", country: "Colombia" },
+      { city: "Cartagena", code: "CTG", name: "Rafael Núñez International Airport", country: "Colombia" },
+      { city: "São Paulo", code: "GRU", name: "São Paulo/Guarulhos International Airport", country: "Brazil" },
+      { city: "Rio de Janeiro", code: "GIG", name: "Rio de Janeiro/Galeão International Airport", country: "Brazil" },
+      { city: "Montevideo", code: "MVD", name: "Carrasco International Airport", country: "Uruguay" },
+      { city: "Asunción", code: "ASU", name: "Silvio Pettirossi International Airport", country: "Paraguay" },
+      { city: "Cusco", code: "CUZ", name: "Alejandro Velasco Astete International Airport", country: "Peru" }
+    ];
+
+    const officialHelpUrl = "https://jetsmart.com/us/en/centro-de-ayuda";
+
+    function setupAutocomplete(inputId, suggestionsId) {
+      const input = document.getElementById(inputId);
+      const list = document.getElementById(suggestionsId);
+
+      function closeList() {
+        list.classList.remove("open");
+        list.replaceChildren();
+      }
+
+      function renderSuggestions() {
+        const query = input.value.trim().toLowerCase();
+        list.replaceChildren();
+
+        if (!query) {
+          closeList();
+          return;
+        }
+
+        const matches = airports.filter(airport => {
+          return (
+            airport.city.toLowerCase().includes(query) ||
+            airport.code.toLowerCase().includes(query) ||
+            airport.name.toLowerCase().includes(query) ||
+            airport.country.toLowerCase().includes(query)
+          );
+        }).slice(0, 8);
+
+        if (matches.length === 0) {
+          const message = document.createElement("div");
+          message.className = "suggestion";
+          message.textContent = "No matching sample airport. You can enter a city or airport manually.";
+          list.appendChild(message);
+          list.classList.add("open");
+          return;
+        }
+
+        matches.forEach(airport => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "suggestion";
+          button.setAttribute("role", "option");
+
+          const title = document.createElement("strong");
+          title.textContent = `${airport.city} (${airport.code})`;
+
+          const detail = document.createElement("small");
+          detail.textContent = `${airport.name} · ${airport.country}`;
+
+          button.append(title, detail);
+
+          button.addEventListener("click", () => {
+            input.value = `${airport.city} (${airport.code})`;
+            closeList();
+          });
+
+          list.appendChild(button);
+        });
+
+        list.classList.add("open");
+      }
+
+      input.addEventListener("input", renderSuggestions);
+      input.addEventListener("focus", renderSuggestions);
+
+      document.addEventListener("click", event => {
+        if (!input.contains(event.target) && !list.contains(event.target)) {
+          closeList();
+        }
+      });
+
+      input.addEventListener("keydown", event => {
+        if (event.key === "Escape") closeList();
+      });
+    }
+
+    setupAutocomplete("origin", "origin-suggestions");
+    setupAutocomplete("destination", "destination-suggestions");
+
+    const tripType = document.getElementById("trip-type");
+    const returnField = document.getElementById("return-field");
+    const returnDate = document.getElementById("return-date");
+    const departure = document.getElementById("departure");
+
+    const today = new Date();
+    const localToday = new Date(
+      today.getTime() - today.getTimezoneOffset() * 60000
+    ).toISOString().split("T")[0];
+
+    departure.min = localToday;
+    returnDate.min = localToday;
+
+    departure.addEventListener("change", () => {
+      returnDate.min = departure.value || localToday;
+
+      if (returnDate.value && departure.value && returnDate.value < departure.value) {
+        returnDate.value = "";
+      }
+    });
+
+    tripType.addEventListener("change", () => {
+      const isRoundTrip = tripType.value === "Round-trip";
+      returnField.hidden = !isRoundTrip;
+      returnDate.required = isRoundTrip;
+
+      if (!isRoundTrip) returnDate.value = "";
+    });
+
+    document.getElementById("trip-form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const origin = document.getElementById("origin").value.trim();
+      const destination = document.getElementById("destination").value.trim();
+      const departureDate = departure.value;
+      const isRoundTrip = tripType.value === "Round-trip";
+
+      if (origin.toLowerCase() === destination.toLowerCase()) {
+        alert("Please enter different departure and destination locations.");
+        return;
+      }
+
+      if (isRoundTrip && returnDate.value < departureDate) {
+        alert("The return date must be on or after the departure date.");
+        return;
+      }
+
+      const notice = document.getElementById("form-notice");
+      const noticeText = document.getElementById("notice-text");
+
+      noticeText.textContent =
+        "Your trip details have been entered, but this independent website cannot display live fares or confirm a reservation. Check JetSMART's official website for current availability and prices, or contact the independent assistance service if you wish to discuss its services.";
+
+      notice.classList.add("show");
+      notice.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
