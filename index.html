@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Independent JetSMART flight booking assistance and travel information. Learn about booking, cancellations, changes, refunds and official contact resources.">
+  <meta name="description" content="Independent JetSMART flight booking assistance and travel information. Learn about bookings, cancellations, flight changes, refunds and official contact resources.">
   <meta name="theme-color" content="#123e78">
   <title>JetSMART Flight Booking Assistance</title>
 
@@ -21,7 +21,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -190,6 +189,12 @@
       max-width: 550px;
     }
 
+    .hold-time {
+      font-size: 18px;
+      font-weight: 700;
+      color: #176a39;
+    }
+
     .phone {
       display: inline-block;
       margin: 5px 0 15px;
@@ -347,11 +352,12 @@
 
         <section class="result-card" id="result-card"
           aria-live="polite" aria-labelledby="result-heading">
-          <h2 id="result-heading">Speak With a Live Representative</h2>
+          <h2 id="result-heading">Talk to a Live Representative</h2>
+          <p class="hold-time">Hold time is less than 1 minute.</p>
           <p>
-            Call our independent flight assistance service to discuss the
-            services available. Hold times may vary. Any applicable fees
-            should be explained before you agree to a service.
+            Contact our independent flight assistance service to discuss
+            the services available. Any applicable fees should be explained
+            before you agree to a service.
           </p>
           <a class="phone" href="tel:+18666528170">+1 866-652-8170</a>
           <br>
@@ -421,10 +427,10 @@
       <article class="faq-item">
         <h3>3. How to change a JetSMART flight date or destination?</h3>
         <p>
-          Review the conditions of your ticket and contact JetSMART using
-          its official website or Help Center. Change fees, fare differences,
+          Review your ticket conditions and contact JetSMART using its
+          official website or Help Center. Change fees, fare differences,
           deadlines and eligibility may vary. Confirm the final cost before
-          accepting any changes.
+          accepting changes.
         </p>
         <p><strong>Official JetSMART contact:</strong>
           <a href="tel:+17864180337">+1 786-418-0337</a>
@@ -445,7 +451,7 @@
         <p>
           Refund eligibility depends on the fare rules, reason for the
           request, booking terms and applicable legal requirements. Check
-          the official assistance options and keep your booking confirmation
+          official assistance options and keep your booking confirmation
           and payment records.
         </p>
         <p><strong>Official JetSMART contact:</strong>
@@ -467,7 +473,7 @@
         <p>
           For airline-managed reservations, ticket changes, official policies
           and airline decisions, use JetSMART's official Help Center.
-          Have your booking reference available when contacting the airline.
+          Keep your booking reference available when contacting the airline.
         </p>
         <p>
           <a href="https://jetsmart.com/us/en/centro-de-ayuda"
@@ -521,7 +527,7 @@
         </a>
       </p>
       <p>
-        Verify the current contact details and applicable service hours on
+        Verify current contact details and applicable service hours on
         JetSMART's official website. The independent assistance number is
         not an official JetSMART phone number.
       </p>
@@ -582,7 +588,8 @@
         if (matches.length === 0) {
           const item = document.createElement("div");
           item.className = "suggestion";
-          item.textContent = "No sample match. You can enter a city or airport manually.";
+          item.textContent =
+            "No sample match. You can enter a city or airport manually.";
           list.appendChild(item);
           list.classList.add("open");
           return;
@@ -682,7 +689,10 @@
 
       const resultCard = document.getElementById("result-card");
       resultCard.classList.add("show");
-      resultCard.scrollIntoView({ behavior: "smooth", block: "center" });
+      resultCard.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();
