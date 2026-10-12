@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Independent JetSMART flight booking assistance and travel information. Learn about bookings, cancellations, flight changes, refunds and official contact resources.">
+  <meta name="description" content="Independent JetSMART flight information and assistance resources, including booking, cancellations, changes, refunds and official airline contact details.">
   <meta name="theme-color" content="#123e78">
   <title>JetSMART Flight Booking Assistance</title>
 
@@ -87,7 +87,10 @@
       text-align: center;
     }
 
-    .field { margin-bottom: 18px; min-width: 0; }
+    .field {
+      margin-bottom: 18px;
+      min-width: 0;
+    }
 
     .field label {
       display: block;
@@ -95,7 +98,8 @@
       font-weight: 700;
     }
 
-    .field input, .field select {
+    .field input,
+    .field select {
       display: block;
       width: 100%;
       min-height: 52px;
@@ -143,9 +147,19 @@
       cursor: pointer;
     }
 
-    .suggestion:hover { background: #edf5ff; }
-    .suggestion strong, .suggestion small { display: block; }
-    .suggestion small { color: var(--muted); }
+    .suggestion:hover,
+    .suggestion:focus {
+      background: #edf5ff;
+    }
+
+    .suggestion strong,
+    .suggestion small {
+      display: block;
+    }
+
+    .suggestion small {
+      color: var(--muted);
+    }
 
     .primary-button {
       display: block;
@@ -184,15 +198,11 @@
       font-size: clamp(24px, 4vw, 30px);
     }
 
-    .result-card p {
-      margin: 10px auto 16px;
-      max-width: 550px;
-    }
-
     .hold-time {
+      margin: 10px auto 16px;
+      color: #176a39;
       font-size: 18px;
       font-weight: 700;
-      color: #176a39;
     }
 
     .phone {
@@ -230,13 +240,11 @@
 
     .faq-item p { margin: 8px 0; }
 
-    .independent-note {
-      padding: 20px;
-      background: white;
-      border: 1px solid #e0e7f0;
-      border-radius: 12px;
-      color: #4b5b70;
-      font-size: 14px;
+    footer {
+      padding: 18px;
+      color: #5f6d80;
+      text-align: center;
+      font-size: 12px;
     }
 
     .official-contact {
@@ -262,13 +270,6 @@
     .official-contact .official-number {
       font-size: 13px;
       font-weight: 700;
-    }
-
-    footer {
-      padding: 18px;
-      color: #5f6d80;
-      text-align: center;
-      font-size: 12px;
     }
 
     @media (max-width: 600px) {
@@ -354,11 +355,6 @@
           aria-live="polite" aria-labelledby="result-heading">
           <h2 id="result-heading">Talk to a Live Representative</h2>
           <p class="hold-time">Hold time is less than 1 minute.</p>
-          <p>
-            Contact our independent flight assistance service to discuss
-            the services available. Any applicable fees should be explained
-            before you agree to a service.
-          </p>
           <a class="phone" href="tel:+18666528170">+1 866-652-8170</a>
           <br>
           <a class="call-button" href="tel:+18666528170">
